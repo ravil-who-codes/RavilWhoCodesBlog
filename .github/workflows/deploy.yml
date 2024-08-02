@@ -24,7 +24,7 @@ jobs:
           node-version: "20"
 
       - name: Build Hugo site
-        run: hugo --minify
+        run: hugo --minify --baseURL "https://ravil-who-codes.xyz"
 
       - name: Deploy website
         env:

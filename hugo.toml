@@ -1,0 +1,9 @@
+baseURL = 'https://ravil-who-codes.xyz/'
+languageCode = 'en-us'
+title = 'Ravil Who Codes'
+theme = "hugo-bearblog-master"
+
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 1

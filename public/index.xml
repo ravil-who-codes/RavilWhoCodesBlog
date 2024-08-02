@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ravil Who Codes</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Ravil Who Codes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Aug 2024 17:22:05 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apillons_web3_storage_for_form_data</title>
+      <link>http://localhost:1313/posts/apillons_web3_storage_for_form_data/</link>
+      <pubDate>Thu, 01 Aug 2024 17:22:05 +0200</pubDate>
+      <guid>http://localhost:1313/posts/apillons_web3_storage_for_form_data/</guid>
+      <description>Introduction Brief introduction to the technologies used (Vite, React, TypeScript, Apillon Hosting, REST API). The purpose of the tutorial: to create a web form that saves data to Apillon Hosting. Setting Up the Project Creating the Project with Vite and TypeScript First, let&amp;rsquo;s create a new project using Vite with TypeScript.&#xA;Open your terminal and run the following commands:&#xA;npm create vite@latest my-react-app --template react-ts cd my-react-app Updating package.json Scripts Next, update your package.</description>
+    </item>
+  </channel>
+</rss>

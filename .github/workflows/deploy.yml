@@ -1,4 +1,4 @@
-name: Deploy Ravil Who Codes
+name: Ravil Who Codes Deploy To IPFS  
 
 on:
   push:
@@ -18,17 +18,30 @@ jobs:
         with:
           hugo-version: "0.129.0"
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "20"
-
       - name: Build Hugo site
-        run: hugo --minify --baseURL "https://ravil-who-codes.xyz"
+        run: hugo --minify #--baseURL "https://ravil-who-codes.xyz"
 
-      - name: Deploy website
-        env:
-          APILLON_API_KEY: ${{ secrets.APILLON_API_KEY }}
-          APILLON_API_SECRET: ${{ secrets.APILLON_API_SECRET }}
-          WEBSITE_UUID: ${{ secrets.WEBSITE_UUID }}
-        run: npx --yes @apillon/cli hosting deploy-website ./public --uuid $WEBSITE_UUID --key $APILLON_API_KEY --secret $APILLON_API_SECRET
+      - name: Install IPFS
+        run: wget https://dist.ipfs.tech/go-ipfs/v0.18.0/go-ipfs_v0.18.0_linux-amd64.tar.gz
+            tar -xvzf go-ipfs_v0.18.0_linux-amd64.tar.gz
+            sudo bash go-ipfs/install.sh
+
+      - name: Initializa IPFS
+        run: ipfs init
+
+      - name: Deploy to IPFS
+        run: |
+            ipfs daemon --init & 
+            sleep 10 # Give IPFS daemon time to start
+            IPFS_HASH=$(ipfs add -r public -Q)
+            echo "Deployed to IPFS with hash: $IPFS_HASH"
+            echo "::set-output name=ipfs_hash::$IPFS_HASH"
+
+      - name: - name: Update DNSLink on Namecheap
+      env:
+        NAMECHEAP_HOSTNAME: "_dnslink"
+        NAMECHEAP_DOMAIN: "ravil-who-codes.xyz"
+        NAMECHEAP_PASSWORD: ${{ secrets.NAMECHEAP_DDNS_PASSWORD }}
+        IPFS_HASH: ${{ steps.deploy.outputs.ipfs_hash }}
+      run: |
+        curl "https://dynamicdns.park-your-domain.com/update?host=${NAMECHEAP_HOSTNAME}&domain=${NAMECHEAP_DOMAIN}&password=${NAMECHEAP_PASSWORD}&ip=127.0.0.1&txt=_dnslink=/ipfs/${IPFS_HASH}"

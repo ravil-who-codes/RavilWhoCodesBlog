@@ -63,8 +63,8 @@ jobs:
     docker:
       - image: circleci/python:3.9
     environment:
-      S3_BUCKET_NAME: ${BUCKET_NAME_STAGING}
-      CLOUD_FRONT_DIST_ID: ${CLOUD_FRONT_DIST_ID_STAGING}
+      S3_BUCKET_NAME: ravil-who-codes.xyz-staging
+      CLOUD_FRONT_DIST_ID: E2VYGC6TC2HHE3
     steps:
       - attach_workspace:
           at: ./
@@ -78,8 +78,8 @@ jobs:
     docker:
       - image: circleci/python:3.9
     environment:
-      S3_BUCKET_NAME: ${BUCKET_NAME_PRODUCTION}
-      CLOUD_FRONT_DIST_ID: ${CLOUD_FRONT_DIST_ID_PRODUCTION}
+      S3_BUCKET_NAME: ravil-who-codes.xyz-production
+      CLOUD_FRONT_DIST_ID: E1O0068P4KGQ34
     steps:
       - attach_workspace:
           at: ./

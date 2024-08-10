@@ -18,8 +18,8 @@ references:
     run:
       name: Install Hugo
       command: |
-        wget https://github.com/gohugoio/hugo/releases/download/v0.117.0/hugo_extended_0.117.0_Linux-64bit.deb
-        sudo dpkg -i hugo_extended_0.117.0_Linux-64bit.deb
+        wget https://github.com/gohugoio/hugo/releases/download/v0.129.0/hugo_extended_0.129.0_linux-amd64.deb
+        sudo dpkg -i hugo_extended_0.129.0_linux-amd64.deb
   deploy_to_s3: &deploy_to_s3
     run:
       name: Upload to S3

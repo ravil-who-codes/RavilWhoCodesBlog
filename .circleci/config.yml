@@ -22,7 +22,7 @@ references:
         sudo dpkg -i hugo_extended_0.117.0_Linux-64bit.deb
   deploy_to_s3: &deploy_to_s3
     run:
-      name: Upload to S3 
+      name: Upload to S3
       command: |
         echo "Copying files to server..."
         aws s3 sync public/ "s3://$S3_BUCKET_NAME" --size-only --exclude "*" --include "*.*" --delete

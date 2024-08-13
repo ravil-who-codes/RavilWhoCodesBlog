@@ -1,4 +1,4 @@
-baseURL = 'https://ravil-who-codes.xyz/'
+baseURL = ''
 languageCode = 'en-us'
 title = 'Ravil Who Codes'
 theme = "hugo-bearblog-master"
